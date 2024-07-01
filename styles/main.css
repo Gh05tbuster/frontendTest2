@@ -91,7 +91,8 @@ img {
 }
 
 .card {
-  width: 360px;
+  cursor: pointer;
+  /* max-width: 360px; */
   height: 700px;
   display: flex;
   flex-direction: column;

@@ -148,12 +148,13 @@
             </div>
             <div class="container graph">
                 <div class="left">
-                    <h2 class="title h2">$7M+ выплачивается инвесторам</h2>
-                    <p class="text">Lorem ipsum dolor sit amet consectetur. Eu id enim sit ut at eu. Ipsum vitae
+                    <h2 class="title h2" id="graphTitle">$7M+ выплачивается инвесторам</h2>
+                    <p class="text" id="graphText">Lorem ipsum dolor sit amet consectetur. Eu id enim sit ut at eu.
+                        Ipsum vitae
                         fermentum eu non tempor adipiscing fusce quam odio. Ut libero dolor dui faucibus nisl mauris. Ac
                         proin suscipit bibendum enim id id non viverra quis. Nec lorem gravida morbi mi.</p>
                 </div>
-                <img src="./images/Graph.png" alt="">
+                <img src="./images/Graph.png" alt="" id="graphImg">
             </div>
         </section>
         <section class="section reg">
@@ -201,9 +202,26 @@
         </div>
         <p class="copyright">2023 © Все права защищены</p>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
-    <script src="./scripts/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.0.0/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.0.0/js/utils.js"></script>
+    <script>
+        const phone = document.querySelector('#phone');
+
+        const phoneInput = window.intlTelInput(phone, {
+            initialCountry: "auto",
+            geoIpLookup: function (success, failure) {
+                fetch('https://ipinfo.io/json', { headers: { 'Accept': 'application/json' } })
+                    .then(response => response.json())
+                    .then(json => success(json.country))
+                    .catch(() => success('us'));
+            },
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.0.0/js/utils.js",
+            // autoInsertDialCode: false,
+            // nationalMode: true,
+            formatOnDisplay: true,
+        });
+    </script>
+    <script src="./scripts/script.js"></script>
 </body>
 
 </html>
