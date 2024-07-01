@@ -9,6 +9,7 @@
 html {
   font-family: "Rubik", sans-serif;
   font-size: 16px;
+  line-height: 1.2;
   font-weight: 300;
 }
 
@@ -38,8 +39,8 @@ img {
   width: 100%;
 }
 
-.section.heading {
-  padding-left: 195px;
+.section {
+  padding: 50px;
 }
 
 /* ------HEADING SECTION------- */
@@ -50,26 +51,24 @@ img {
   background-repeat: no-repeat;
   padding-top: 275px;
   padding-bottom: 300px;
+  padding-left: 195px;
 }
 
 .title.h1 {
   font-size: 62px;
   font-weight: 800;
-  line-height: 74.4px;
   color: #fff;
 }
 
 .section.heading .text {
   color: #fff;
   font-size: 28px;
-  line-height: 33.6px;
   margin-bottom: 65px;
 }
 
 .title.h2 {
   font-weight: 400;
   font-size: 52px;
-  line-height: 60px;
 }
 /* ------GRAPHS SECTION------- */
 
@@ -87,13 +86,11 @@ img {
   display: flex;
   justify-content: center;
   gap: 30px;
-  flex-wrap: wrap;
 }
 
 .card {
   cursor: pointer;
-  /* max-width: 360px; */
-  height: 700px;
+  /* height: 700px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,6 +115,10 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.card .middle {
+  display: none;
 }
 
 .card .bottom {
@@ -151,6 +152,10 @@ img {
 
 .card .info {
   margin-bottom: 160px;
+}
+
+.card .info .title {
+  display: none;
 }
 
 .card .btn {
@@ -189,6 +194,13 @@ img {
   color: #fff;
 }
 
+.card.active .info .text {
+  color: #fff;
+}
+
+.card.active .info .title {
+  color: #fff;
+}
 .card.active .info .text {
   color: #fff;
 }
@@ -252,7 +264,7 @@ img {
 
 .form .inputs {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
   margin-bottom: 45px;
@@ -317,8 +329,10 @@ img {
 .footer .container.big {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #efefef;
   padding-bottom: 40px;
+  width: 85%;
 }
 
 .footer .copyright {
@@ -327,6 +341,275 @@ img {
   font-weight: 400;
   margin-top: 40px;
   margin-bottom: 40px;
+}
+
+/* ------MEDIA-QUERIES------ */
+
+@media (max-width: 1443px) {
+  .section {
+    padding: 8px;
+  }
+
+  .section.heading {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .section.heading .title.h1 {
+    font-size: 44px;
+    font-weight: 600;
+  }
+
+  .section.heading .text {
+    font-size: 16px;
+  }
+
+  .section.graphs {
+    gap: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .cardBox {
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  .card {
+    padding-top: 28px;
+    width: 360px;
+  }
+
+  .card .fire {
+    height: 31px;
+    height: 31px;
+  }
+
+  .card .middle {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .card .middle img {
+    width: 340px;
+    height: 232px;
+    margin-bottom: 15px;
+  }
+
+  .card .middle .text {
+    text-align: center;
+    color: var(--grey);
+  }
+
+  .card .bottom {
+    margin-bottom: 20px;
+  }
+
+  .card .rateName {
+    margin-bottom: 7px;
+    padding: 6px 16px;
+    font-size: 16px;
+  }
+
+  .card .price {
+    margin-bottom: 7px;
+  }
+
+  .card .price .title {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+  }
+
+  .card .info {
+    margin-bottom: 7px;
+  }
+
+  .card .info .title {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  .card .btn {
+    margin-bottom: 22px;
+  }
+
+  .card .link {
+    padding-top: 28px;
+  }
+
+  .container.graph {
+    display: none;
+  }
+}
+
+@media (max-width: 1020px) {
+  .form {
+    padding: 70px 30px;
+  }
+
+  .form .inputs {
+    gap: 15px;
+  }
+
+  .form .input {
+    width: 317px;
+  }
+}
+
+@media (max-width: 744px) {
+  .header {
+    height: 71px;
+  }
+
+  .header img {
+    height: 60px;
+  }
+
+  .section.heading {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 155px;
+    padding-bottom: 124px;
+  }
+
+  .section.heading .title.h1 {
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  .section.heading .text {
+    display: none;
+  }
+
+  .section.graphs {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .section.graphs > .title {
+    display: none;
+  }
+
+  .cardBox {
+    flex-wrap: nowrap;
+    justify-content: start;
+    overflow-x: auto;
+    gap: 23px;
+    /*! SOMETHING WRONG  */
+  }
+
+  .card {
+    padding: 0;
+    padding-top: 14px;
+    min-width: 190px;
+  }
+
+  .card .fire {
+    height: 16px;
+    height: 16px;
+  }
+
+  .card .middle {
+    margin-bottom: 9px;
+  }
+
+  .card .middle img {
+    width: 180px;
+    height: 123px;
+    margin-bottom: 15px;
+  }
+
+  .card .middle .text {
+    font-size: 8px;
+    margin-right: 18px;
+    margin-left: 18px;
+  }
+
+  .card .bottom {
+    margin-bottom: 20px;
+  }
+
+  .card .rateName {
+    margin-bottom: 1px;
+    padding: 3px 8px;
+    font-size: 8px;
+  }
+
+  .card .price {
+    min-height: 43px;
+  }
+
+  .card .price .title {
+    font-size: 22px;
+  }
+
+  .card .price .text {
+    font-size: 8px;
+  }
+
+  .card .info .title {
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+
+  .card .info .text {
+    font-size: 8px;
+  }
+
+  .card .btn {
+    margin-bottom: 13px;
+  }
+
+  .card .link {
+    padding-top: 14px;
+    font-size: 8px;
+  }
+
+  .section.reg {
+    padding: 0;
+  }
+
+  .form {
+    border-radius: 0;
+  }
+
+  .form .title {
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .form .inputs {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form .input {
+    width: 100%;
+  }
+
+  .form .submitBox {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .form #submit {
+    align-self: center;
+  }
+
+  .footer .logo {
+    height: 30px;
+  }
+
+  .footer #up {
+    display: none;
+  }
 }
 
 /* ------BUTTONS------- */
