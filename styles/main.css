@@ -649,6 +649,7 @@ img {
 
 .btn.disabled {
   background-color: var(--grey);
+  cursor: default;
 }
 
 .btn.yellow:hover {
