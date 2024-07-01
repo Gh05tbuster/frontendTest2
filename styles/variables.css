@@ -1,0 +1,23 @@
+:root {
+  /* shadows */
+
+  --primary-hover-shadow: 0 1px 1px #000a;
+  --secondary-hover-shadow: 0 1px 1px #676e7639;
+  --error-hover-shadow: 0 1px 1px #f3414166;
+  --warning-hover-shadow: 0 1px 1px #e9a23b66;
+  --success-hover-shadow: 0 1px 1px #53b48366;
+
+  --primary-hover-shadow: 0 1px 1px #000a;
+  --secondary-hover-shadow: 0 1px 1px #676e7627;
+  --error-focus-shadow: 0 1px 1px #f33f3f29;
+  --warning-focus-shadow: 0 1px 1px #e9a23b29;
+  --success-focus-shadow: 0 1px 1px #53b48329;
+
+  /* colors */
+
+  --green: #00805f;
+  --green-hover: #0d9774;
+  --yellow: #faae17;
+  --yellow-hover: #f1a101;
+  --grey: #969696;
+}
