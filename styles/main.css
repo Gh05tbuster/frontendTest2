@@ -221,6 +221,7 @@ img {
 
 .container.graph {
   display: flex;
+  justify-content: space-between;
   gap: 60px;
 }
 

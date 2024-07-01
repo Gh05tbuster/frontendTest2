@@ -104,4 +104,95 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener('load', updateButtonClasses);
     window.addEventListener('resize', updateButtonClasses);
+
+    const form = document.getElementById('form1');
+    const submitButton = document.getElementById('submit');
+    const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+
+
+    const name = document.querySelector('input[name="name"]');
+    const surname = document.querySelector('input[name="surname"]');
+    const phone = document.querySelector('input[name="phone"]');
+    const email = document.querySelector('input[name="email"]');
+
+    function validateName() {
+        const regex = /^[a-zA-ZÀ-ÿА-Яа-я\s]+$/;
+        const check = regex.test(name.value) ? 1 : 0;
+        return check;
+    }
+
+    function validateSurname() {
+        const regex = /^[a-zA-ZÀ-ÿА-Яа-я\s]+$/;
+        const check = regex.test(surname.value) ? 1 : 0;
+        return check;
+    }
+
+    function validatePhone() {
+        const regex = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+        const check = regex.test(phone.value) ? 1 : 0;
+    }
+
+    function validateEmail() {
+        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const check = regex.test(email.value) ? 1 : 0;
+        return check;
+    }
+
+    function validateAll() {
+        const valid = [];
+        valid.push(validateName());
+        valid.push(validateSurname());
+        valid.push(validatePhone());
+        valid.push(validateEmail());
+
+        return valid.every((el) => el !== 0);
+    }
+
+    function validateForm() {
+        let allFieldsFilled = validateAll();
+        let allCheckboxesChecked = true;
+        checkboxes.forEach(checkbox => {
+            if (!checkbox.checked) {
+                allCheckboxesChecked = false;
+            }
+        });
+
+        if (allFieldsFilled && allCheckboxesChecked) {
+            submitButton.classList.remove('disabled');
+            submitButton.classList.add('green');
+        } else {
+            submitButton.classList.add('disabled');
+            submitButton.classList.remove('green');
+        }
+    }
+
+    inputs.forEach(input => {
+        input.addEventListener('input', validateForm);
+    });
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', validateForm);
+    });
+
+    form.addEventListener('submit', (event) => {
+        if (submitButton.classList.contains('disabled')) {
+            event.preventDefault();
+        }
+    });
+
+    validateForm();
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
 });
